@@ -1,0 +1,195 @@
+// Robotic Microscope - Power Distribution Detail
+// Graphviz DOT file for power system
+// Generate PDF: dot -Tpdf 02_power_distribution.dot -o 02_power_distribution.pdf
+
+digraph power_distribution {
+    // Graph styling
+    rankdir=LR;
+    bgcolor="white";
+    fontname="Arial";
+    fontsize=12;
+    
+    // Node defaults
+    node [fontname="Arial", fontsize=10, style="filled"];
+    edge [fontname="Arial", fontsize=9];
+    
+    // Title
+    labelloc="t";
+    label=<<B>Robotic Microscope Power Distribution</B><BR/>Detailed Power Routing and Current Paths>;
+    fontsize=16;
+    
+    // ========== INPUT ==========
+    subgraph cluster_input {
+        label=<<B>AC INPUT</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        
+        Wall [label="120V AC\nWall Outlet", shape=house, fillcolor="yellow"];
+        AC_DC [label="AC/DC Adapter\n24V 5A\n(120W Max)", shape=box, fillcolor="wheat"];
+        
+        Wall -> AC_DC [label="AC Power"];
+    }
+    
+    // ========== PROTECTION ==========
+    Fuse_24V [label="5A Fuse\n(Automotive\nBlade Type)", shape=box, fillcolor="orange"];
+    
+    AC_DC -> Fuse_24V [label="24V+", color="red", penwidth=3];
+    
+    // ========== 24V DISTRIBUTION ==========
+    subgraph cluster_24v_bus {
+        label=<<B>24V DISTRIBUTION</B>>;
+        style="filled,rounded";
+        fillcolor="mistyrose";
+        
+        Bus_24V_Hot [label="24V Bus Bar\n(+) Hot Side\n12 Positions", shape=box, fillcolor="red", fontcolor="white"];
+        Bus_24V_Outputs [label="TB6600 X (24V)\nTB6600 Y (24V)\nTB6600 Z (24V)\nTB6600 F (24V)\nDC Converter (24V)", 
+                          shape=note, fillcolor="pink"];
+    }
+    
+    Fuse_24V -> Bus_24V_Hot [label="24V", color="red", penwidth=3];
+    Bus_24V_Hot -> Bus_24V_Outputs [label="5× Outputs", color="red", penwidth=2];
+    
+    // ========== GROUND BUS ==========
+    subgraph cluster_gnd_bus {
+        label=<<B>GROUND DISTRIBUTION</B>>;
+        style="filled,rounded";
+        fillcolor="lightgray";
+        
+        Bus_GND [label="GND Bus Bar\n(Common Ground)\n12 Positions\n⚠ Single Point Ground", 
+                 shape=box, fillcolor="gray", fontcolor="white"];
+        
+        GND_Inputs [label="AC/DC Adapter GND\nDC Converter GND", shape=note, fillcolor="lightgray"];
+        GND_24V_Loads [label="TB6600 X GND\nTB6600 Y GND\nTB6600 Z GND\nTB6600 F GND", 
+                       shape=note, fillcolor="lightgray"];
+        GND_5V_Loads [label="Teensy GND\nRPi4 GND\nLED Ring GND\nLevel Shifter GND", 
+                      shape=note, fillcolor="lightgray"];
+        
+        GND_Inputs -> Bus_GND [label="", color="black"];
+        Bus_GND -> GND_24V_Loads [label="4× 24V Returns", color="black", penwidth=2];
+        Bus_GND -> GND_5V_Loads [label="4× 5V Returns", color="black", penwidth=2];
+    }
+    
+    AC_DC -> Bus_GND [label="GND Return", color="black", penwidth=3];
+    
+    // ========== 5V CONVERSION ==========
+    subgraph cluster_5v {
+        label=<<B>5V POWER SUPPLY</B>>;
+        style="filled,rounded";
+        fillcolor="lightblue";
+        
+        DC_Conv [label="24V → 5V\nBuck Converter\nLM2596 / Similar\n5A Output\n(25W Max)", 
+                 shape=box, fillcolor="skyblue"];
+        
+        Bus_5V [label="5V Rail\n(25W capacity)", shape=box, fillcolor="lightgreen"];
+    }
+    
+    Bus_24V_Hot -> DC_Conv [label="24V IN", color="red", penwidth=2];
+    DC_Conv -> Bus_GND [label="GND", color="black", penwidth=2];
+    DC_Conv -> Bus_5V [label="5V OUT", color="green", penwidth=3];
+    
+    // ========== 5V LOADS ==========
+    subgraph cluster_5v_loads {
+        label=<<B>5V CONSUMERS</B>>;
+        style="filled,rounded";
+        fillcolor="lightgreen";
+        
+        Teensy_Load [label="Teensy 4.1\n~150mA\n0.75W", shape=box, fillcolor="lightsalmon"];
+        RPI4_Load [label="Raspberry Pi 4\n~2.5A\n12.5W", shape=box, fillcolor="lightblue"];
+        LED_Load [label="LED Ring\n@40% brightness\n~500mA\n2.5W", shape=box, fillcolor="yellow"];
+        Level_Load [label="Level Shifter\n~10mA\n0.05W", shape=box, fillcolor="lightcyan"];
+    }
+    
+    Bus_5V -> Teensy_Load [label="5V", color="green", penwidth=2];
+    Bus_5V -> RPI4_Load [label="5V", color="green", penwidth=2];
+    Bus_5V -> LED_Load [label="5V", color="green", penwidth=2];
+    Bus_5V -> Level_Load [label="5V", color="green", penwidth=2];
+    
+    Teensy_Load -> Bus_GND [label="GND", color="black"];
+    RPI4_Load -> Bus_GND [label="GND", color="black"];
+    LED_Load -> Bus_GND [label="GND", color="black"];
+    Level_Load -> Bus_GND [label="GND", color="black"];
+    
+    // ========== 24V LOADS ==========
+    subgraph cluster_24v_loads {
+        label=<<B>24V CONSUMERS (Motors)</B>>;
+        style="filled,rounded";
+        fillcolor="lavenderblush";
+        
+        TB_X [label="TB6600 X + Motor\nConfigured: 1A × 24V\n24W", shape=box, fillcolor="pink"];
+        TB_Y [label="TB6600 Y + Motor\nConfigured: 1A × 24V\n24W", shape=box, fillcolor="pink"];
+        TB_Z [label="TB6600 Z + Motor\nConfigured: 1A × 24V\n24W", shape=box, fillcolor="pink"];
+        TB_F [label="TB6600 F + Motor\nConfigured: 1A × 24V\n24W", shape=box, fillcolor="pink"];
+    }
+    
+    Bus_24V_Hot -> TB_X [label="24V", color="red", penwidth=2];
+    Bus_24V_Hot -> TB_Y [label="24V", color="red", penwidth=2];
+    Bus_24V_Hot -> TB_Z [label="24V", color="red", penwidth=2];
+    Bus_24V_Hot -> TB_F [label="24V", color="red", penwidth=2];
+    
+    TB_X -> Bus_GND [label="GND", color="black"];
+    TB_Y -> Bus_GND [label="GND", color="black"];
+    TB_Z -> Bus_GND [label="GND", color="black"];
+    TB_F -> Bus_GND [label="GND", color="black"];
+    
+    // ========== FUTURE EXPANSION ==========
+    eStop [label="eSTOP\n(Future)\nNC Contact\nBreaks 24V", 
+           shape=octagon, fillcolor="red", fontcolor="white", style="dashed"];
+    
+    Fuse_24V -> eStop [label="Future Install", style="dotted"];
+    eStop -> Bus_24V_Hot [label="", style="dotted"];
+    
+    // ========== POWER BUDGET ==========
+    subgraph cluster_budget {
+        label=<<B>POWER BUDGET</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        
+        Budget [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="3"><B>System Power Consumption</B></TD></TR>
+                <TR><TD><B>Component</B></TD><TD><B>Current</B></TD><TD><B>Power</B></TD></TR>
+                <TR><TD>Teensy 4.1</TD><TD>150mA @ 5V</TD><TD>0.75W</TD></TR>
+                <TR><TD>RPi4</TD><TD>2.5A @ 5V</TD><TD>12.5W</TD></TR>
+                <TR><TD>LED Ring (40%)</TD><TD>500mA @ 5V</TD><TD>2.5W</TD></TR>
+                <TR><TD>Level Shifter</TD><TD>10mA @ 5V</TD><TD>0.05W</TD></TR>
+                <TR><TD BGCOLOR="lightgreen"><B>5V Subtotal</B></TD><TD><B>3.16A</B></TD><TD><B>15.8W</B></TD></TR>
+                <TR><TD>Motors (4× 1A)</TD><TD>4A @ 24V</TD><TD>96W</TD></TR>
+                <TR><TD BGCOLOR="pink"><B>24V Subtotal</B></TD><TD><B>4A</B></TD><TD><B>96W</B></TD></TR>
+                <TR><TD BGCOLOR="yellow"><B>Total System</B></TD><TD><B>~4A @ 24V</B></TD><TD><B>~112W</B></TD></TR>
+                <TR><TD COLSPAN="3" BGCOLOR="lightgreen"><B>Supply: 24V 5A = 120W</B><BR/>✓ <I>Excellent headroom (8W margin)<BR/>TB6600s configured for 1A via DIP switches</I></TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== NOTES ==========
+    subgraph cluster_notes {
+        label=<<B>CRITICAL NOTES</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        
+        Notes [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+                <TR><TD><B>Grounding Strategy</B></TD></TR>
+                <TR><TD ALIGN="LEFT">• Single-point ground at bus bar<BR/>
+                                     • Prevents ground loops<BR/>
+                                     • All GND wires meet at bus<BR/>
+                                     • No chassis ground connection</TD></TR>
+                <TR><TD><B>Fusing</B></TD></TR>
+                <TR><TD ALIGN="LEFT">• 5A automotive blade fuse<BR/>
+                                     • Protects against shorts<BR/>
+                                     • Located at 24V input</TD></TR>
+                <TR><TD><B>Connectors (External)</B></TD></TR>
+                <TR><TD ALIGN="LEFT">• All external: JST-SM series<BR/>
+                                     • Motors: 4-pin JST<BR/>
+                                     • Limits: 2-pin JST<BR/>
+                                     • LED: 3-pin JST<BR/>
+                                     • eStop: 2-pin JST (future)</TD></TR>
+                <TR><TD BGCOLOR="orange"><B>Safety</B></TD></TR>
+                <TR><TD ALIGN="LEFT"><B>⚠ 24V is considered SELV<BR/>
+                                     ⚠ Fuse is essential<BR/>
+                                     ⚠ Insulate all connections<BR/>
+                                     ⚠ No exposed conductors</B></TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+}

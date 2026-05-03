@@ -1,0 +1,163 @@
+// Robotic Microscope - System Overview
+// Graphviz DOT file for high-level system architecture
+// Generate PDF: dot -Tpdf 01_system_overview.dot -o 01_system_overview.pdf
+
+digraph system_overview {
+    // Graph styling
+    rankdir=TB;
+    bgcolor="white";
+    fontname="Arial";
+    fontsize=12;
+    compound=true;
+    
+    // Node defaults
+    node [fontname="Arial", fontsize=11, style="filled"];
+    edge [fontname="Arial", fontsize=9];
+    
+    // Title
+    labelloc="t";
+    label=<<B>Robotic Microscope System Architecture</B><BR/>System Overview - Major Components>;
+    fontsize=16;
+    
+    // ========== POWER SUPPLY ==========
+    subgraph cluster_power {
+        label=<<B>POWER DISTRIBUTION</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        fontsize=12;
+        
+        AC_Adapter [label="24V 5A\nAC/DC Adapter", shape=box, fillcolor="wheat"];
+        Fuse [label="5A Fuse", shape=box, fillcolor="orange"];
+        Bus_24V [label="24V Bus Bar\n(12 pos)", shape=box, fillcolor="gold"];
+        Bus_GND [label="GND Bus Bar\n(12 pos)", shape=box, fillcolor="lightgray"];
+        DC_Converter [label="24V→5V\n5A Buck\nConverter", shape=box, fillcolor="lightblue"];
+        Bus_5V [label="5V Rail", shape=box, fillcolor="lightgreen"];
+        
+        AC_Adapter -> Fuse [label="24V"];
+        Fuse -> Bus_24V [label="24V"];
+        Bus_24V -> DC_Converter [label="24V"];
+        DC_Converter -> Bus_5V [label="5V"];
+        Bus_GND [label="GND Bus\n(Common)"];
+    }
+    
+    // ========== CONTROL SYSTEMS ==========
+    subgraph cluster_control {
+        label=<<B>CONTROL & COMPUTE</B>>;
+        style="filled,rounded";
+        fillcolor="lightcyan";
+        fontsize=12;
+        
+        RPI4 [label="Raspberry Pi 4\n(Master Computer)\n• GUI/Interface\n• Camera Processing\n• LED Control", 
+              shape=box3d, fillcolor="lightblue", width=2.5];
+        
+        Teensy [label="Teensy 4.1\n(Motion Controller)\n• 600MHz ARM M7\n• Motion Planning\n• Limit Monitoring", 
+                shape=box3d, fillcolor="lightsalmon", width=2.5];
+        
+        Camera [label="Camera Module\n(CSI → HDMI)", shape=component, fillcolor="lightgreen"];
+        
+        LED_Ring [label="NeoPixel Ring\n24 × WS2812B\nIllumination", 
+                  shape=cylinder, fillcolor="yellow"];
+    }
+    
+    // ========== MOTOR DRIVERS ==========
+    subgraph cluster_drivers {
+        label=<<B>STEPPER DRIVERS</B>>;
+        style="filled,rounded";
+        fillcolor="lavenderblush";
+        fontsize=12;
+        
+        TB6600_X [label="TB6600\nDriver X", shape=box, fillcolor="pink"];
+        TB6600_Y [label="TB6600\nDriver Y", shape=box, fillcolor="pink"];
+        TB6600_Z [label="TB6600\nDriver Z", shape=box, fillcolor="pink"];
+        TB6600_F [label="TB6600\nDriver F", shape=box, fillcolor="pink"];
+    }
+    
+    // ========== MOTORS ==========
+    subgraph cluster_motors {
+        label=<<B>STEPPER MOTORS</B>>;
+        style="filled,rounded";
+        fillcolor="honeydew";
+        fontsize=12;
+        
+        Motor_X [label="NEMA17\nX-Axis\n(Gantry L-R)", shape=box, fillcolor="lightgreen"];
+        Motor_Y [label="NEMA17\nY-Axis\n(Table F-B)", shape=box, fillcolor="lightgreen"];
+        Motor_Z [label="NEMA17\nZ-Axis\n(Vertical)", shape=box, fillcolor="lightgreen"];
+        Motor_F [label="NEMA17\nF-Axis\n(Focus)", shape=box, fillcolor="lightgreen"];
+    }
+    
+    // ========== LIMIT SWITCHES ==========
+    subgraph cluster_limits {
+        label=<<B>LIMIT SWITCHES</B>>;
+        style="filled,rounded";
+        fillcolor="mistyrose";
+        fontsize=12;
+        
+        Limit_X [label="X MIN/MAX", shape=box, fillcolor="salmon"];
+        Limit_Y [label="Y MIN/MAX", shape=box, fillcolor="salmon"];
+        Limit_Z [label="Z MIN/MAX", shape=box, fillcolor="salmon"];
+        Limit_F [label="F MIN/MAX", shape=box, fillcolor="salmon"];
+    }
+    
+    // ========== POWER CONNECTIONS ==========
+    Bus_5V -> RPI4 [label="5V", color="green", penwidth=2];
+    Bus_5V -> Teensy [label="5V", color="green", penwidth=2];
+    Bus_5V -> LED_Ring [label="5V", color="green", penwidth=2];
+    
+    Bus_24V -> TB6600_X [label="24V", color="red", penwidth=2];
+    Bus_24V -> TB6600_Y [label="24V", color="red", penwidth=2];
+    Bus_24V -> TB6600_Z [label="24V", color="red", penwidth=2];
+    Bus_24V -> TB6600_F [label="24V", color="red", penwidth=2];
+    
+    Bus_GND -> RPI4 [label="GND", color="black", penwidth=1.5, style="dashed"];
+    Bus_GND -> Teensy [label="GND", color="black", penwidth=1.5, style="dashed"];
+    Bus_GND -> LED_Ring [label="GND", color="black", penwidth=1.5, style="dashed"];
+    Bus_GND -> TB6600_X [label="GND", color="black", penwidth=1.5, style="dashed"];
+    Bus_GND -> TB6600_Y [label="GND", color="black", penwidth=1.5, style="dashed"];
+    Bus_GND -> TB6600_Z [label="GND", color="black", penwidth=1.5, style="dashed"];
+    Bus_GND -> TB6600_F [label="GND", color="black", penwidth=1.5, style="dashed"];
+    
+    // ========== CONTROL CONNECTIONS ==========
+    RPI4 -> Camera [label="CSI/HDMI", color="blue"];
+    RPI4 -> LED_Ring [label="GPIO10\nMOSI\n(via level\nshifter)", color="purple"];
+    RPI4 -> Teensy [label="UART\nGPIO14/15\n115200 baud", color="blue", penwidth=2];
+    
+    Teensy -> TB6600_X [label="STEP/DIR\nPins 2,3", color="darkgreen"];
+    Teensy -> TB6600_Y [label="STEP/DIR\nPins 6,7", color="darkgreen"];
+    Teensy -> TB6600_Z [label="STEP/DIR\nPins 10,11", color="darkgreen"];
+    Teensy -> TB6600_F [label="STEP/DIR\nPins 15,16", color="darkgreen"];
+    
+    Teensy -> TB6600_X [label="ENA (Pin 33)\nShared", color="orange", style="dashed"];
+    Teensy -> TB6600_Y [label="", color="orange", style="dashed"];
+    Teensy -> TB6600_Z [label="", color="orange", style="dashed"];
+    Teensy -> TB6600_F [label="", color="orange", style="dashed"];
+    
+    TB6600_X -> Motor_X [label="A+/A-\nB+/B-", color="brown", penwidth=2];
+    TB6600_Y -> Motor_Y [label="A+/A-\nB+/B-", color="brown", penwidth=2];
+    TB6600_Z -> Motor_Z [label="A+/A-\nB+/B-", color="brown", penwidth=2];
+    TB6600_F -> Motor_F [label="A+/A-\nB+/B-", color="brown", penwidth=2];
+    
+    Limit_X -> Teensy [label="Pins 4,5", color="red", dir="back"];
+    Limit_Y -> Teensy [label="Pins 8,9", color="red", dir="back"];
+    Limit_Z -> Teensy [label="Pins 12,14", color="red", dir="back"];
+    Limit_F -> Teensy [label="Pins 22,18", color="red", dir="back"];
+    
+    // ========== CONNECTORS ==========
+    eStop [label="eSTOP\n(Provision\nNot Impl.)", shape=octagon, fillcolor="red", fontcolor="white"];
+    eStop -> Bus_24V [style="dotted", label="Future"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        style="filled,rounded";
+        fillcolor="white";
+        
+        leg1 [label="─── Power (5V)", color="green", penwidth=2, shape=plaintext];
+        leg2 [label="─── Power (24V)", color="red", penwidth=2, shape=plaintext];
+        leg3 [label="- - - Ground", color="black", style="dashed", shape=plaintext];
+        leg4 [label="─── Control/Data", color="blue", shape=plaintext];
+        
+        leg1 -> leg2 [style="invis"];
+        leg2 -> leg3 [style="invis"];
+        leg3 -> leg4 [style="invis"];
+    }
+}

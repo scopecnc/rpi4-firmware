@@ -1,0 +1,237 @@
+// Robotic Microscope - Signal-Level Schematics
+// Graphviz DOT file for detailed signal routing
+// Generate PDF: dot -Tpdf 03_signal_details.dot -o 03_signal_details.pdf
+
+digraph signal_details {
+    // Graph styling
+    rankdir=TB;
+    bgcolor="white";
+    fontname="Arial";
+    fontsize=12;
+    
+    // Node defaults
+    node [fontname="Arial", fontsize=9, style="filled"];
+    edge [fontname="Arial", fontsize=8];
+    
+    // Title
+    labelloc="t";
+    label=<<B>Robotic Microscope Signal-Level Schematics</B><BR/>Detailed Pin-Level Connections>;
+    fontsize=16;
+    
+    // ========== TEENSY PINOUT ==========
+    subgraph cluster_teensy {
+        label=<<B>TEENSY 4.1 PINOUT</B>>;
+        style="filled,rounded";
+        fillcolor="lightsalmon";
+        
+        Teensy [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+                <TR><TD COLSPAN="4" BGCOLOR="orange"><B>Teensy 4.1 Pin Assignments</B></TD></TR>
+                <TR><TD><B>Pin</B></TD><TD><B>Function</B></TD><TD><B>Direction</B></TD><TD><B>Signal</B></TD></TR>
+                <TR><TD>0</TD><TD>UART RX</TD><TD>←</TD><TD>Serial1 RX (from RPi)</TD></TR>
+                <TR><TD>1</TD><TD>UART TX</TD><TD>→</TD><TD>Serial1 TX (to RPi)</TD></TR>
+                <TR><TD>2</TD><TD>X_STEP</TD><TD>→</TD><TD>Step pulse (X motor)</TD></TR>
+                <TR><TD>3</TD><TD>X_DIR</TD><TD>→</TD><TD>Direction (X motor)</TD></TR>
+                <TR><TD>4</TD><TD>X_MIN</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>5</TD><TD>X_MAX</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>6</TD><TD>Y_STEP</TD><TD>→</TD><TD>Step pulse (Y motor)</TD></TR>
+                <TR><TD>7</TD><TD>Y_DIR</TD><TD>→</TD><TD>Direction (Y motor)</TD></TR>
+                <TR><TD>8</TD><TD>Y_MIN</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>9</TD><TD>Y_MAX</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>10</TD><TD>Z_STEP</TD><TD>→</TD><TD>Step pulse (Z motor)</TD></TR>
+                <TR><TD>11</TD><TD>Z_DIR</TD><TD>→</TD><TD>Direction (Z motor)</TD></TR>
+                <TR><TD>12</TD><TD>Z_MIN</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD BGCOLOR="yellow">13</TD><TD BGCOLOR="yellow">LED</TD><TD BGCOLOR="yellow">-</TD><TD BGCOLOR="yellow">Onboard (unused)</TD></TR>
+                <TR><TD>14</TD><TD>Z_MAX</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>15</TD><TD>F_STEP</TD><TD>→</TD><TD>Step pulse (F motor)</TD></TR>
+                <TR><TD>16</TD><TD>F_DIR</TD><TD>→</TD><TD>Direction (F motor)</TD></TR>
+                <TR><TD>18</TD><TD>F_MAX</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>22</TD><TD>F_MIN</TD><TD>←</TD><TD>Limit switch (pullup)</TD></TR>
+                <TR><TD>33</TD><TD>ENA_ALL</TD><TD>→</TD><TD>Enable (all TB6600s)</TD></TR>
+                <TR><TD>GND</TD><TD>Ground</TD><TD>-</TD><TD>Multiple pins available</TD></TR>
+                <TR><TD>5V</TD><TD>Power In</TD><TD>-</TD><TD>From buck converter</TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== RPi4 PINOUT ==========
+    subgraph cluster_rpi {
+        label=<<B>RASPBERRY PI 4 GPIO</B>>;
+        style="filled,rounded";
+        fillcolor="lightblue";
+        
+        RPI4 [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+                <TR><TD COLSPAN="3" BGCOLOR="skyblue"><B>RPi4 GPIO Connections</B></TD></TR>
+                <TR><TD><B>GPIO</B></TD><TD><B>Function</B></TD><TD><B>Connection</B></TD></TR>
+                <TR><TD>10</TD><TD>SPI0 MOSI</TD><TD>LED Ring (via level shifter)</TD></TR>
+                <TR><TD>14</TD><TD>UART TX</TD><TD>Teensy Pin 0 (RX)</TD></TR>
+                <TR><TD>15</TD><TD>UART RX</TD><TD>Teensy Pin 1 (TX)</TD></TR>
+                <TR><TD>GND</TD><TD>Ground</TD><TD>Common ground bus</TD></TR>
+                <TR><TD>5V</TD><TD>Power In</TD><TD>From buck converter</TD></TR>
+                <TR><TD COLSPAN="3"><I>Camera: CSI ribbon → HDMI adapter</I></TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== UART CONNECTION ==========
+    subgraph cluster_uart {
+        label=<<B>UART CONNECTION (RPi ↔ Teensy)</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        
+        UART_Detail [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="3" BGCOLOR="gold"><B>3-Wire UART (115200 baud)</B></TD></TR>
+                <TR><TD><B>RPi4 GPIO</B></TD><TD><B>Signal</B></TD><TD><B>Teensy Pin</B></TD></TR>
+                <TR><TD>GPIO 14 (TX)</TD><TD>→ Data →</TD><TD>Pin 0 (RX)</TD></TR>
+                <TR><TD>GPIO 15 (RX)</TD><TD>← Data ←</TD><TD>Pin 1 (TX)</TD></TR>
+                <TR><TD>GND</TD><TD>─ Common ─</TD><TD>GND</TD></TR>
+                <TR><TD COLSPAN="3" BGCOLOR="lightgreen"><B>Parameters</B><BR/>
+                    Baud: 115200<BR/>Data: 8 bits<BR/>Parity: None<BR/>Stop: 1<BR/>Flow: None</TD></TR>
+                <TR><TD COLSPAN="3" BGCOLOR="orange"><B>⚠ Both use 3.3V logic</B><BR/>
+                    <I>No level shifting needed</I></TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== LED RING WITH LEVEL SHIFTER ==========
+    subgraph cluster_led {
+        label=<<B>LED RING CONTROL (with Level Shifter)</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        
+        LED_Detail [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="3" BGCOLOR="yellow"><B>NeoPixel LED Ring Circuit</B></TD></TR>
+                <TR><TD COLSPAN="3"><B>SN74AHCT125N Level Shifter (14-pin DIP)</B></TD></TR>
+                <TR><TD><B>Pin</B></TD><TD><B>Function</B></TD><TD><B>Connection</B></TD></TR>
+                <TR><TD>14</TD><TD>VCC</TD><TD>+5V (from buck converter)</TD></TR>
+                <TR><TD>7</TD><TD>GND</TD><TD>Ground (common bus)</TD></TR>
+                <TR><TD BGCOLOR="lightgreen">1</TD><TD BGCOLOR="lightgreen">1A (Input)</TD><TD BGCOLOR="lightgreen">RPi GPIO10 (3.3V MOSI)</TD></TR>
+                <TR><TD BGCOLOR="lightgreen">2</TD><TD BGCOLOR="lightgreen">1Y (Output)</TD><TD BGCOLOR="lightgreen">LED Ring DIN (5V)</TD></TR>
+                <TR><TD BGCOLOR="lightgreen">1</TD><TD BGCOLOR="lightgreen">1OE (Enable)</TD><TD BGCOLOR="lightgreen">GND (active LOW = ON)</TD></TR>
+                <TR><TD BGCOLOR="lightgray">3,5,9,11</TD><TD BGCOLOR="lightgray">Unused Inputs</TD><TD BGCOLOR="lightgray">Tie to GND</TD></TR>
+                <TR><TD COLSPAN="3"><B>─────────────────</B></TD></TR>
+                <TR><TD COLSPAN="3"><B>WS2812B LED Ring (24 LEDs)</B></TD></TR>
+                <TR><TD><B>Pin</B></TD><TD><B>Function</B></TD><TD><B>Connection</B></TD></TR>
+                <TR><TD BGCOLOR="yellow">DIN</TD><TD BGCOLOR="yellow">Data In</TD><TD BGCOLOR="yellow">From 74AHCT125 pin 2 (1Y)</TD></TR>
+                <TR><TD BGCOLOR="lightgreen">5V</TD><TD BGCOLOR="lightgreen">Power</TD><TD BGCOLOR="lightgreen">+5V rail (buck converter)</TD></TR>
+                <TR><TD>GND</TD><TD>Ground</TD><TD>Ground bus</TD></TR>
+                <TR><TD COLSPAN="3" BGCOLOR="orange"><B>Notes:</B><BR/>
+                    • WS2812B requires 5V logic<BR/>
+                    • RPi GPIO is 3.3V<BR/>
+                    • 74AHCT125 shifts 3.3V → 5V<BR/>
+                    • Current @ 40%: ~500mA<BR/>
+                    • Current @ 70% max: ~900mA</TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== TB6600 CONNECTIONS ==========
+    subgraph cluster_tb6600 {
+        label=<<B>TB6600 STEPPER DRIVER CONNECTIONS</B>>;
+        style="filled,rounded";
+        fillcolor="lavenderblush";
+        
+        TB6600_Detail [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="6" BGCOLOR="pink"><B>TB6600 Driver Wiring (4× drivers identical)</B></TD></TR>
+                <TR><TD><B>Axis</B></TD><TD><B>PUL+</B></TD><TD><B>DIR+</B></TD><TD><B>ENA+</B></TD><TD><B>Motor</B></TD><TD><B>Power</B></TD></TR>
+                <TR><TD><B>X</B></TD><TD>Pin 2</TD><TD>Pin 3</TD><TD>Pin 33</TD><TD>4-wire</TD><TD>24V/GND</TD></TR>
+                <TR><TD><B>Y</B></TD><TD>Pin 6</TD><TD>Pin 7</TD><TD>Pin 33</TD><TD>4-wire</TD><TD>24V/GND</TD></TR>
+                <TR><TD><B>Z</B></TD><TD>Pin 10</TD><TD>Pin 11</TD><TD>Pin 33</TD><TD>4-wire</TD><TD>24V/GND</TD></TR>
+                <TR><TD><B>F</B></TD><TD>Pin 15</TD><TD>Pin 16</TD><TD>Pin 33</TD><TD>4-wire</TD><TD>24V/GND</TD></TR>
+                <TR><TD COLSPAN="6"><B>Control Signal Details</B></TD></TR>
+                <TR><TD><B>Terminal</B></TD><TD COLSPAN="2"><B>+ Connection</B></TD><TD COLSPAN="3"><B>- Connection (GND)</B></TD></TR>
+                <TR><TD>PUL</TD><TD COLSPAN="2">Teensy STEP pin (3.3V)</TD><TD COLSPAN="3">Common Ground</TD></TR>
+                <TR><TD>DIR</TD><TD COLSPAN="2">Teensy DIR pin (3.3V)</TD><TD COLSPAN="3">Common Ground</TD></TR>
+                <TR><TD BGCOLOR="orange">ENA</TD><TD COLSPAN="2" BGCOLOR="orange">Pin 33 (shared)</TD><TD COLSPAN="3" BGCOLOR="orange">Common Ground</TD></TR>
+                <TR><TD COLSPAN="6"><I>Note: All (-) terminals connect to common ground bus</I></TD></TR>
+                <TR><TD COLSPAN="6" BGCOLOR="yellow"><B>⚠ Enable Logic: Active LOW</B><BR/>
+                    Pin 33 LOW = Drivers ENABLED<BR/>
+                    Pin 33 HIGH = Drivers DISABLED</TD></TR>
+                <TR><TD COLSPAN="6"><B>Motor Connections (NEMA17 Bipolar)</B></TD></TR>
+                <TR><TD><B>Terminal</B></TD><TD COLSPAN="5"><B>Function</B></TD></TR>
+                <TR><TD>A+/A-</TD><TD COLSPAN="5">Coil A (typically Red/Green or Black/Red)</TD></TR>
+                <TR><TD>B+/B-</TD><TD COLSPAN="5">Coil B (typically Blue/White or Yellow/Green)</TD></TR>
+                <TR><TD COLSPAN="6"><I>Use multimeter to identify coil pairs (continuity test)</I></TD></TR>
+                <TR><TD COLSPAN="6"><B>DIP Switch Configuration</B></TD></TR>
+                <TR><TD COLSPAN="6">Current Limit: <B>1A</B> (per TB6600 datasheet)<BR/>
+                    Microstepping: <B>1/16</B> (SW5-8: All ON)<BR/>
+                    Calibrated: 400 steps/mm</TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== LIMIT SWITCHES ==========
+    subgraph cluster_limits {
+        label=<<B>LIMIT SWITCH WIRING</B>>;
+        style="filled,rounded";
+        fillcolor="mistyrose";
+        
+        Limit_Detail [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="4" BGCOLOR="salmon"><B>Limit Switch Connections (8× switches)</B></TD></TR>
+                <TR><TD><B>Axis</B></TD><TD><B>Switch</B></TD><TD><B>Teensy Pin</B></TD><TD><B>Wiring</B></TD></TR>
+                <TR><TD ROWSPAN="2"><B>X</B></TD><TD>X_MIN</TD><TD>4</TD><TD ROWSPAN="8">Pin ─ Switch ─ GND<BR/>(Normally Open)</TD></TR>
+                <TR><TD>X_MAX</TD><TD>5</TD></TR>
+                <TR><TD ROWSPAN="2"><B>Y</B></TD><TD>Y_MIN</TD><TD>8</TD></TR>
+                <TR><TD>Y_MAX</TD><TD>9</TD></TR>
+                <TR><TD ROWSPAN="2"><B>Z</B></TD><TD>Z_MIN</TD><TD>12</TD></TR>
+                <TR><TD>Z_MAX</TD><TD>14</TD></TR>
+                <TR><TD ROWSPAN="2"><B>F</B></TD><TD>F_MIN</TD><TD>22</TD></TR>
+                <TR><TD>F_MAX</TD><TD>18</TD></TR>
+                <TR><TD COLSPAN="4"><B>Configuration</B></TD></TR>
+                <TR><TD COLSPAN="4">• Type: Mechanical NO (Normally Open)<BR/>
+                                     • Pull-up: Internal (INPUT_PULLUP)<BR/>
+                                     • Logic: Active LOW (pressed = GND)<BR/>
+                                     • Debounce: 50ms in firmware<BR/>
+                                     • Interrupt: FALLING edge<BR/>
+                                     • Connector: 2-pin JST-SM</TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== CAMERA ==========
+    subgraph cluster_camera {
+        label=<<B>CAMERA CONNECTION</B>>;
+        style="filled,rounded";
+        fillcolor="lightgreen";
+        
+        Camera_Detail [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="2" BGCOLOR="lightgreen"><B>Camera Module</B></TD></TR>
+                <TR><TD><B>Interface</B></TD><TD>CSI (Camera Serial Interface)</TD></TR>
+                <TR><TD><B>Connection</B></TD><TD>15-pin ribbon cable</TD></TR>
+                <TR><TD><B>Adapter</B></TD><TD>CSI → HDMI converter</TD></TR>
+                <TR><TD><B>RPi Port</B></TD><TD>CSI camera port (near HDMI)</TD></TR>
+                <TR><TD COLSPAN="2"><I>Note: Currently prototyping with USB<BR/>
+                                      Production uses CSI for latency</I></TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+    
+    // ========== CONNECTOR SUMMARY ==========
+    subgraph cluster_connectors {
+        label=<<B>EXTERNAL CONNECTOR SUMMARY</B>>;
+        style="filled,rounded";
+        fillcolor="lightyellow";
+        
+        Connector_Table [label=<
+            <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+                <TR><TD COLSPAN="4" BGCOLOR="gold"><B>JST-SM Connectors (External)</B></TD></TR>
+                <TR><TD><B>Component</B></TD><TD><B>Pins</B></TD><TD><B>Signals</B></TD><TD><B>Qty</B></TD></TR>
+                <TR><TD>Stepper Motors</TD><TD>4</TD><TD>A+, A-, B+, B-</TD><TD>4</TD></TR>
+                <TR><TD>Limit Switches</TD><TD>2</TD><TD>Signal, GND</TD><TD>8</TD></TR>
+                <TR><TD>LED Ring</TD><TD>3</TD><TD>DIN, 5V, GND</TD><TD>1</TD></TR>
+                <TR><TD>eStop (future)</TD><TD>2</TD><TD>NC contact</TD><TD>1</TD></TR>
+                <TR><TD COLSPAN="4"><B>Internal Connections (screw terminals)</B></TD></TR>
+                <TR><TD>Power Input</TD><TD>2</TD><TD>24V, GND</TD><TD>1</TD></TR>
+                <TR><TD>TB6600 Power</TD><TD>2</TD><TD>24V, GND</TD><TD>4</TD></TR>
+                <TR><TD>TB6600 Control</TD><TD>6</TD><TD>PUL+/-, DIR+/-, ENA+/-</TD><TD>4</TD></TR>
+                <TR><TD>UART (RPi-Teensy)</TD><TD>3</TD><TD>TX, RX, GND</TD><TD>1</TD></TR>
+            </TABLE>
+        >, shape=plaintext];
+    }
+}

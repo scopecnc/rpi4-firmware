@@ -1,0 +1,1327 @@
+{
+  "dataset": "New Hampshire Mineral Factoids",
+  "generated": "2026-01-09",
+  "notes": "Alphabetically ordered. High-appeal facts weighted for display; technical data as fallback.",
+  "minerals": [
+    {
+      "mineral": "_generic",
+      "regions": ["Universal"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "There are over 6,000 known mineral species on Earth, with about 50-100 new ones discovered each year.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "A mineral must be naturally occurring, inorganic, solid, and have an ordered atomic structure.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "New Hampshire's White Mountains are famous for pegmatite minerals formed from slow-cooling magma.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "The Mohs hardness scale ranks minerals from 1 (talc) to 10 (diamond).",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Many minerals fluoresce under ultraviolet light, glowing colors invisible in normal light.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Crystals form when atoms arrange themselves in repeating 3D patterns as minerals cool or precipitate.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.8,
+          "text": "New Hampshire has been called the 'Granite State' since the 1820s due to its abundant granite bedrock.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Minerals get their colors from trace elements, crystal defects, or how they interact with light.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Acanthite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Acanthite is the most important ore of silver and forms beautiful dark metallic crystals.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Acanthite gets its name from the Greek word 'akantha' meaning thorn, due to its sharp crystal shapes.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Acanthite is silver sulfide (Ag₂S) and contains about 87% silver by weight.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Acanthite has a Mohs hardness of only 2-2.5, soft enough to scratch with a fingernail.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Albite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Albite is named from the Latin 'albus' meaning white, its most common color.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Albite is one of the most common feldspar minerals and is abundant in New Hampshire pegmatites.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Albite is a sodium aluminum silicate with formula NaAlSi₃O₈.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Albite has a Mohs hardness of 6-6.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Almandine",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Almandine is the most common garnet and is found throughout New Hampshire's metamorphic rocks.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Garnet is widely used as an abrasive in sandpaper and water jet cutting.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Almandine is named after Alabanda, an ancient city in Turkey where garnets were cut and polished.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Almandine garnet has a Mohs hardness of 7-7.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Anglesite",
+      "regions": ["New England"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Anglesite is named after Anglesey, an island in Wales where it was first described in 1832.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Anglesite forms when galena (lead ore) is oxidized by weathering, creating beautiful clear crystals.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Anglesite is lead sulfate (PbSO₄) and is quite dense due to its lead content.",
+          "confidence": "high"
+        },
+        {
+          "category": "safety",
+          "tier": "B",
+          "display_weight": 0.6,
+          "text": "Anglesite contains lead - always wash hands after handling lead minerals.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Apatite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Apatite gets its name from Greek 'apatao' meaning 'to deceive' because it's easily confused with other minerals.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Apatite is a major source of phosphorus used in fertilizers that help grow our food.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Your teeth and bones contain a form of apatite called hydroxylapatite!",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Apatite defines hardness 5 on the Mohs scale.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Aragonite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Aragonite and calcite have the same chemistry but different crystal structures - they're polymorphs!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Pearls and mother-of-pearl are made of aragonite deposited by mollusks.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Aragonite is named after Aragon, a region in Spain where it was first identified.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Aragonite has a Mohs hardness of 3.5-4.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Arsenopyrite",
+      "regions": ["New Hampshire", "Vermont"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Arsenopyrite is the most common arsenic mineral and was historically a source of arsenic compounds.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Arsenopyrite can smell like garlic when struck or crushed due to arsenic release.",
+          "confidence": "high"
+        },
+        {
+          "category": "safety",
+          "tier": "A",
+          "display_weight": 0.8,
+          "text": "Arsenopyrite contains arsenic - always wash hands after handling and never taste minerals!",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Arsenopyrite has a Mohs hardness of 5.5-6.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Autunite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "fluorescence",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Autunite glows bright green under ultraviolet light - one of the most fluorescent minerals!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Autunite is a uranium mineral and is naturally radioactive.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Autunite is named after Autun, a city in France where it was discovered.",
+          "confidence": "high"
+        },
+        {
+          "category": "safety",
+          "tier": "B",
+          "display_weight": 0.6,
+          "text": "Autunite specimens should be stored in sealed containers due to radioactivity.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Barite",
+      "regions": ["New England"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Barite means 'heavy' in Greek - it's noticeably dense for a non-metallic mineral.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Barite is used in oil drilling mud and in medical imaging as a contrast agent.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Barite is barium sulfate (BaSO₄) with a specific gravity of 4.5.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Barite has a Mohs hardness of 3-3.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Beryl",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Emerald (green) and aquamarine (blue) are gem varieties of beryl!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "New Hampshire pegmatites have produced beryl crystals over 5 meters long!",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Beryl is a source of beryllium metal, used in aerospace alloys.",
+          "confidence": "high"
+        },
+        {
+          "category": "safety",
+          "tier": "B",
+          "display_weight": 0.6,
+          "text": "Beryl contains beryllium - avoid breathing dust when cutting or polishing.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Biotite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Biotite is named after French physicist Jean-Baptiste Biot who studied mica optics.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Biotite is the black mica commonly seen as dark flakes in granite.",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "B",
+          "display_weight": 0.6,
+          "text": "Like all micas, biotite splits into thin flexible sheets.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Biotite has a Mohs hardness of 2.5-3.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Calcite",
+      "regions": ["New Hampshire", "New England"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Calcite is one of the most common minerals on Earth and makes up limestone and marble.",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Clear calcite displays 'double refraction' - look through it and you'll see two images!",
+          "confidence": "high"
+        },
+        {
+          "category": "fluorescence",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Many calcites fluoresce red, pink, or orange under UV light.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Calcite is calcium carbonate (CaCO₃) and fizzes in acid.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Chalcopyrite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Chalcopyrite is the most important copper ore - most copper comes from this mineral!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Chalcopyrite is often called 'fool's gold' but has a more brassy yellow than real gold.",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Chalcopyrite often tarnishes to iridescent purple and blue colors.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Chalcopyrite has a Mohs hardness of 3.5-4.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Chamosite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Chamosite is named after Chamoson, a village in Switzerland where it was first found.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Chamosite is an iron-rich clay mineral in the chlorite group.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Chamosite can be an iron ore when found in large sedimentary deposits.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Chamosite is an iron aluminum silicate hydroxide.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Columbite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Columbite is named after Columbia, a poetic name for America where it was first analyzed.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Columbite is a source of niobium, used in superconducting magnets and jet engines.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "New Hampshire pegmatites have produced fine columbite specimens.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Columbite has a Mohs hardness of 6.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Cuprite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Cuprite is copper oxide and displays a stunning deep red color.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Cuprite comes from Latin 'cuprum' meaning copper.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.6,
+          "text": "Cuprite (Cu₂O) contains about 88% copper by weight.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Cuprite has a Mohs hardness of 3.5-4.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Fluorapatite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Fluorapatite is the most common apatite and is found in nearly all igneous rocks.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Fluoride in toothpaste helps convert tooth enamel to more decay-resistant fluorapatite.",
+          "confidence": "high"
+        },
+        {
+          "category": "fluorescence",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Fluorapatite can fluoresce yellow, orange, or blue under UV light.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Fluorapatite has a Mohs hardness of 5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Fluorite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "history",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "The word 'fluorescence' comes from fluorite - the first mineral where this glow was studied!",
+          "confidence": "high"
+        },
+        {
+          "category": "fluorescence",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Fluorite commonly glows blue or purple under ultraviolet light.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Fluorite is used as a flux in steel making and in producing hydrofluoric acid.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Fluorite defines hardness 4 on the Mohs scale.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Galena",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "history",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Galena has been mined for over 5,000 years - ancient Egyptians used it for eye makeup!",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Galena is the primary ore of lead and was used in early crystal radio sets.",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Galena has perfect cubic cleavage - it breaks into perfect little cubes!",
+          "confidence": "high"
+        },
+        {
+          "category": "safety",
+          "tier": "B",
+          "display_weight": 0.6,
+          "text": "Galena contains lead - wash hands after handling.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Garnet",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Garnet is actually a group of minerals that share similar crystal structures but vary in chemistry.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Garnet comes from Latin 'granatum' (pomegranate) due to its red, seed-like crystals.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Garnet's hardness makes it excellent for sandpaper and water jet cutting.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Most garnets have a Mohs hardness of 6.5-7.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Graphite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Graphite and diamond are both pure carbon but with different atomic arrangements!",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Pencil 'lead' is actually graphite mixed with clay - no lead at all!",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Graphite comes from Greek 'graphein' meaning 'to write.'",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Graphite has a Mohs hardness of only 1-2, one of the softest minerals.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Hydrozincite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "fluorescence",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Hydrozincite often fluoresces bright blue under shortwave UV light!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Hydrozincite forms as a weathering product of zinc ores, often as white crusts.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Hydrozincite is zinc carbonate hydroxide: Zn₅(CO₃)₂(OH)₆.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Hydrozincite has a Mohs hardness of about 2-2.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Linarite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Linarite is prized for its intense azure blue color, rivaling the finest azurite!",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Linarite is named after the Linares mining district in Spain.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Linarite is a lead copper sulfate hydroxide.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Linarite has a Mohs hardness of 2.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Magnetite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Magnetite is naturally magnetic - ancient sailors used it as 'lodestone' for navigation!",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Magnetite is an important iron ore and is also found in some bacteria and bird brains for navigation.",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Magnetite is iron oxide (Fe₃O₄) containing both Fe²⁺ and Fe³⁺.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Magnetite has a Mohs hardness of 5.5-6.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Malachite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "history",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Malachite was ground into powder for green pigment by ancient Egyptians over 4,000 years ago!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Malachite's distinctive green bands make it one of the most recognizable minerals.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Malachite is named from Greek 'malache' (mallow plant) due to its leaf-green color.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Malachite has a Mohs hardness of 3.5-4.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Microcline",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "The green variety of microcline is called amazonite, a popular gemstone.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Microcline is a potassium feldspar common in New Hampshire granites and pegmatites.",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Microcline means 'small slope' in Greek, referring to its slight deviation from 90° cleavage.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Microcline has a Mohs hardness of 6-6.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Muscovite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "history",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Muscovite was used as window glass in medieval Russia - its name comes from 'Muscovy glass'!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "New Hampshire muscovite was historically mined for electrical insulation.",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Muscovite splits into extremely thin, transparent, flexible sheets.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Muscovite has a Mohs hardness of 2-2.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Pyrite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Pyrite is called 'fool's gold' because its brassy color fooled many gold prospectors!",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Pyrite comes from Greek 'pyr' meaning fire - it sparks when struck with steel!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Pyrite often forms perfect cubes, sometimes with striations on the faces.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Pyrite has a Mohs hardness of 6-6.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Quartz",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Quartz is the second most abundant mineral in Earth's crust after feldspar.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Quartz crystals vibrate at precise frequencies, making them essential for watches and electronics.",
+          "confidence": "high"
+        },
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Amethyst, citrine, rose quartz, and smoky quartz are all varieties of quartz!",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Quartz defines hardness 7 on the Mohs scale.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Smithsonite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Smithsonite is named after James Smithson, the founder of the Smithsonian Institution!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Smithsonite can occur in many colors including blue, green, pink, and yellow.",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Smithsonite is a zinc ore and was historically important before sphalerite became dominant.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Smithsonite has a Mohs hardness of 4-4.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Sphalerite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Sphalerite is the world's most important zinc ore - nearly all zinc comes from it!",
+          "confidence": "high"
+        },
+        {
+          "category": "name_origin",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Sphalerite means 'treacherous' in Greek because it was often mistaken for galena but yielded no lead.",
+          "confidence": "high"
+        },
+        {
+          "category": "fluorescence",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Some sphalerite fluoresces orange under UV light.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Sphalerite has a Mohs hardness of 3.5-4.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Spodumene",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "practical_use",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Spodumene is a major source of lithium for batteries in phones, laptops, and electric cars!",
+          "confidence": "high"
+        },
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Pink kunzite and green hiddenite are gem varieties of spodumene.",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Spodumene can form enormous crystals - one from South Dakota was over 14 meters long!",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Spodumene has a Mohs hardness of 6.5-7.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Titanite",
+      "regions": ["New Hampshire", "Maine"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Titanite is also called sphene, from Greek for 'wedge' due to its typical crystal shape.",
+          "confidence": "high"
+        },
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Gem-quality titanite has fire (dispersion) even higher than diamond!",
+          "confidence": "high"
+        },
+        {
+          "category": "chemistry",
+          "tier": "B",
+          "display_weight": 0.5,
+          "text": "Titanite is calcium titanium silicate (CaTiSiO₅).",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Titanite has a Mohs hardness of 5-5.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Topaz",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "New Hampshire has produced fine topaz crystals from its pegmatites.",
+          "confidence": "high"
+        },
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Blue topaz is the most popular color, though most is colorless topaz that has been irradiated.",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Topaz has perfect cleavage in one direction, making it tricky to cut as a gem.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Topaz defines hardness 8 on the Mohs scale.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Tourmaline",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Tourmaline occurs in more colors than any other mineral - the complete rainbow!",
+          "confidence": "high"
+        },
+        {
+          "category": "physical_property",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Tourmaline becomes electrically charged when heated or rubbed - it attracts dust!",
+          "confidence": "high"
+        },
+        {
+          "category": "gemology",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "'Watermelon tourmaline' has a pink center and green rim, like the fruit!",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Tourmaline has a Mohs hardness of 7-7.5.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Uraninite",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "history",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Marie Curie discovered radium and polonium by studying uraninite (then called pitchblende)!",
+          "confidence": "high"
+        },
+        {
+          "category": "general_interest",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Uraninite is the primary ore of uranium and is naturally radioactive.",
+          "confidence": "high"
+        },
+        {
+          "category": "safety",
+          "tier": "A",
+          "display_weight": 0.85,
+          "text": "Uraninite specimens should be handled briefly and stored away from living spaces.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Uraninite has a Mohs hardness of 5-6.",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "mineral": "Zircon",
+      "regions": ["New Hampshire"],
+      "factoids": [
+        {
+          "category": "history",
+          "tier": "A",
+          "display_weight": 0.95,
+          "text": "Zircon crystals are the oldest known materials on Earth - some are 4.4 billion years old!",
+          "confidence": "high"
+        },
+        {
+          "category": "gemology",
+          "tier": "A",
+          "display_weight": 0.9,
+          "text": "Zircon should not be confused with cubic zirconia - zircon is a natural gemstone!",
+          "confidence": "high"
+        },
+        {
+          "category": "practical_use",
+          "tier": "B",
+          "display_weight": 0.7,
+          "text": "Zircon is a source of zirconium metal, used in nuclear reactors and ceramics.",
+          "confidence": "high"
+        },
+        {
+          "category": "hardness",
+          "tier": "C",
+          "display_weight": 0.4,
+          "text": "Zircon has a Mohs hardness of 7.5.",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}
